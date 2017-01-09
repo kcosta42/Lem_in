@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 22:28:06 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/06 17:49:00 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/09 16:03:11 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 t_byte		g_end;
 t_byte		g_start;
+t_byte		g_stop;
 
-t_byte		ft_check_command(char *line)
+static t_byte	ft_check_command(char *line)
 {
 	if (ft_strcmp(line, "##start"))
 	{
@@ -29,11 +30,29 @@ t_byte		ft_check_command(char *line)
 	return (1);
 }
 
-t_byte		ft_add_room(char *line)
+static t_byte	ft_add_room(char *line)
 {
+	static int	index = 1;
+	char		*name;
+
+	if (!ft_strchr(line, ' '))
+		return (1);
+	name = ft_strsub(line, 0, ft_strchr(line, ' ') - line);
+	while (*line != ' ')
+		line++;
+	if (!ft_isdigit(*line))
+		return (2);
+	while (ft_isdigit(*(line++)))
+		;
+	if (!ft_isdigit(*(line++)))
+		return (3);
+	while (ft_isdigit(*(line++)))
+	ft_lstadd(get_rooms(), ft_lstnew(name, ft_strlen(name) + 1));
+	(*get_room())->content_size = index++;
+	return (0);
 }
 
-t_byte		ft_add_path(char *line)
+static t_byte	ft_add_path(char *line)
 {
 }
 

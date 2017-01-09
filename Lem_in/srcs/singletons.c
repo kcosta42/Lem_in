@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.h                                           :+:      :+:    :+:   */
+/*   singletons.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/04 22:27:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/09 15:47:25 by kcosta           ###   ########.fr       */
+/*   Created: 2017/01/09 14:37:18 by kcosta            #+#    #+#             */
+/*   Updated: 2017/01/09 17:10:31 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_H
-# define LEM_IN_H
+#include "lem_in.h"
 
-# include "libft.h"
+t_list		**get_rooms(void)
+{
+	static t_list	*rooms = NULL;
 
-t_list	**get_rooms(void);
-
-#endif
+	return (&rooms);
+}

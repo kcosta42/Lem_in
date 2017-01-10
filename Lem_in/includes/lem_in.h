@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 22:27:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/09 15:47:25 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/10 12:56:06 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 
-t_list	**get_rooms(void);
+t_list	**get_room(void);
+int		***get_path(void);
 
 #endif

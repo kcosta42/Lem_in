@@ -6,7 +6,7 @@
 #*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#             *#
-#*   Updated: 2017/01/04 12:05:23 by kcosta           ###   ########.fr       *#
+#*   Updated: 2017/01/10 12:40:26 by kcosta           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -27,7 +27,8 @@ NAME = lem-in
 SRCS_PATH = srcs/
 INCLUDES_PATH = includes/
 INCLUDES = -I includes/ -I libft/includes/
-FILES =	lem-in.c
+FILES = lem_in.c \
+		singletons.c
 SRCS = $(addprefix $(SRCS_PATH), $(FILES))
 OBJS = $(SRCS:.c=.o)
 

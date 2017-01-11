@@ -6,7 +6,7 @@
 #*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#             *#
-#*   Updated: 2016/12/14 15:55:54 by kcosta           ###   ########.fr       *#
+#*   Updated: 2017/01/11 16:04:51 by kcosta           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -64,6 +64,7 @@ FILES =	string/ft_strcat.c \
 		string/ft_strepur.c \
 		string/ft_strsplit.c \
 		string/ft_strisalnum.c \
+		string/ft_strisdigit.c \
 		ctype/ft_isalnum.c \
 		ctype/ft_isascii.c \
 		ctype/ft_isblank.c \
@@ -125,7 +126,7 @@ all: $(NAME)
 %.o: %.c
 	@/bin/echo -n $(YELLOW)[$(GREEN)$(BOLD)Compiling $(BLUE)$(notdir $@) $(EOC)$(YELLOW)...]- -$(EOC)
 	@$(CC) $(FLAGS) -I $(INCLUDES_PATH) -c -o $@ $<
-	@/bin/echo "$(YELLOW)[$(BOLD)$(GREEN)Done!$(EOC)$(YELLOW)]$(EOC)"
+	@echo "$(YELLOW)[$(BOLD)$(GREEN)Done!$(EOC)$(YELLOW)]$(EOC)"
 
 $(NAME): $(OBJS)
 	@/bin/echo $(YELLOW)[$(MAGENTA)$(BOLD)Creating $(BLUE)$(NAME) $(EOC)$(YELLOW)...]$(EOC)

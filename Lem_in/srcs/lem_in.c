@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 22:28:06 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/10 17:54:59 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:07:27 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,19 @@ static t_byte	ft_check_room(t_list *list)
 
 static t_list	*ft_find_room(t_list *room, char *name, t_byte alt)
 {
+	char		*to_find;
+
+	to_find = (alt) ? ft_strsub(name, 0, alt) : ft_strdup(name);
 	while (room)
 	{
-		if ((alt) ? !ft_strncmp(room->content, name, alt)
-				: !ft_strcmp(room->content, name))
+		if (!ft_strcmp(room->content, to_find))
+		{
+			ft_strdel(&to_find);
 			return (room);
+		}
 		room = room->next;
 	}
+	ft_strdel(&to_find);
 	return (NULL);
 }
 
@@ -100,7 +106,8 @@ static int		ft_solve(int ants)
 	path = *get_path();
 	for (unsigned int i = 0; i < get_glob()->count; i++)
 		for (unsigned int j = 0; j < get_glob()->count; j++)
-			ft_printf("%d-%d = %d\n", i, j, path[i][j]);
+			if (path[i][j])
+				ft_printf("%d-%d = %d\n", i, j, path[i][j]);
 	return (0);
 }
 
@@ -131,9 +138,9 @@ int			main(void)
 	if (ft_getline(0, &line) <= 0)
 		return (1);
 	ft_putendl(line);
+	valid = !ft_strisdigit(line);
 	ants = ft_atoi(line);
 	ft_strdel(&line);
-	valid = 0;
 	while (!valid && ft_getline(0, &line) > 0)
 	{
 		ft_putendl(line);
@@ -141,8 +148,10 @@ int			main(void)
 			valid = ft_check_command(line);
 		else if (ft_strchr(line, '-'))
 			valid = ft_add_path(line);
-		else
+		else if (*line != 'L')
 			valid = ft_add_room(line);
+		else
+			valid = 1;
 		ft_strdel(&line);
 	}
 	if (ft_solve(ants))

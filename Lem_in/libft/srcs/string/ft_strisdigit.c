@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strisalnum.c                                    :+:      :+:    :+:   */
+/*   ft_strisdigit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 18:07:55 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/11 16:03:05 by kcosta           ###   ########.fr       */
+/*   Created: 2017/01/11 15:34:02 by kcosta            #+#    #+#             */
+/*   Updated: 2017/01/11 16:05:19 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include "ft_ctype.h"
 
-int		ft_strisalnum(const char *str)
+int		ft_strisdigit(const char *str)
 {
 	if (!str)
 		return (0);
 	while (*str)
 	{
-		if (!ft_isalnum(*str) && *str != '_')
+		if (!ft_isdigit(*str))
 			return (0);
 		str++;
 	}

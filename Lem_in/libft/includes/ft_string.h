@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 14:57:13 by kcosta            #+#    #+#             */
-/*   Updated: 2016/12/14 17:21:35 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/11 16:05:34 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_strsplit(const char *s, char c);
 
 int		ft_strisalnum(const char *s);
+int		ft_strisdigit(const char *s);
 
 #endif

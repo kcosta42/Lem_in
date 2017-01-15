@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 14:37:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/10 17:51:07 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/13 17:17:37 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_glob		*get_glob(void)
 {
-	static t_glob	glob = {0, 0, 0, 0, 1};
+	static t_glob	glob = {0, 0, 0, 0, 1, INT_MAX};
 
 	return (&glob);
 }
@@ -24,6 +24,13 @@ t_list		**get_room(void)
 	static t_list	*rooms = NULL;
 
 	return (&rooms);
+}
+
+t_list		**get_result(void)
+{
+	static t_list	*result = NULL;
+
+	return (&result);
 }
 
 int			***get_path(void)

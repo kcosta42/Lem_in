@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 22:27:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/10 17:49:56 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/13 17:21:31 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include "libft.h"
 
-# define END	0
-# define START	1
-# define STOP	2
-# define COUNT	3
-# define INDEX	4
-
 typedef struct		s_glob
 {
 	t_byte			end;
@@ -28,10 +22,12 @@ typedef struct		s_glob
 	t_byte			stop;
 	unsigned int	count;
 	unsigned int	index;
+	int				dist;
 }					t_glob;
 
 t_glob	*get_glob(void);
 t_list	**get_room(void);
+t_list	**get_result(void);
 int		***get_path(void);
 
 #endif

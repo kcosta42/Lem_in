@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 22:28:06 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/16 15:34:59 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/16 16:15:09 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ int				main(void)
 		return (ft_error("\nERROR\n", 2));
 	ft_putchar('\n');
 	(void)ft_manage_result(get_glob()->ants, busy);
+	free(busy);
+	busy = NULL;
 	return (0);
 }

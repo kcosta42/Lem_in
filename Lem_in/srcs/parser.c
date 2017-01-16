@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 12:09:17 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/16 13:15:23 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/16 16:14:16 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ static t_byte	ft_check_command(char *line)
 	return (get_glob()->start && get_glob()->end);
 }
 
-static t_byte	ft_add_room(char *line)
+static t_byte	ft_check_format(char *line)
 {
-	char		*name;
-
 	if (get_glob()->stop || !ft_strchr(line, ' '))
 		return (1);
-	name = ft_strsub(line, 0, ft_strchr(line, ' ') - line);
 	while (*line != ' ')
 		line++;
 	if (!ft_isdigit(*(++line)))
@@ -43,6 +40,16 @@ static t_byte	ft_add_room(char *line)
 		return (3);
 	while (ft_isdigit(*(line++)))
 		;
+	return (0);
+}
+
+static t_byte	ft_add_room(char *line)
+{
+	char		*name;
+
+	if (ft_check_format(line))
+		return (1);
+	name = ft_strsub(line, 0, ft_strchr(line, ' ') - line);
 	ft_lstadd(get_room(), ft_lstnew(name, ft_strlen(name) + 1));
 	(*get_room())->content_size = (get_glob()->start) ? 0 : get_glob()->index;
 	(*get_room())->content_size = (get_glob()->end) ? (size_t)-1
@@ -51,6 +58,7 @@ static t_byte	ft_add_room(char *line)
 	get_glob()->count++;
 	get_glob()->start = (get_glob()->start) ? 0 : get_glob()->start;
 	get_glob()->end = (get_glob()->end) ? 0 : get_glob()->end;
+	ft_strdel(&name);
 	return (0);
 }
 
@@ -97,5 +105,6 @@ t_byte			ft_parse(void)
 			valid = 1;
 		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	return (valid);
 }

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 14:37:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/01/13 17:17:37 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/01/16 12:12:47 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_glob		*get_glob(void)
 {
-	static t_glob	glob = {0, 0, 0, 0, 1, INT_MAX};
+	static t_glob	glob = {0, 0, 0, 0, 1, INT_MAX, 0};
 
 	return (&glob);
 }

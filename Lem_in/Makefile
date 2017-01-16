@@ -6,7 +6,7 @@
 #*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#             *#
-#*   Updated: 2017/01/11 11:31:26 by kcosta           ###   ########.fr       *#
+#*   Updated: 2017/01/16 12:28:10 by kcosta           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -28,7 +28,10 @@ SRCS_PATH = srcs/
 INCLUDES_PATH = includes/
 INCLUDES = -I includes/ -I libft/includes/
 FILES = lem_in.c \
-		singletons.c
+		singletons.c \
+		parser.c \
+		utils.c \
+		solver.c
 SRCS = $(addprefix $(SRCS_PATH), $(FILES))
 OBJS = $(SRCS:.c=.o)
 

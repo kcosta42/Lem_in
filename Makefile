@@ -1,14 +1,14 @@
-#* ************************************************************************** *#
-#*                                                                            *#
-#*                                                        :::      ::::::::   *#
-#*   Makefile                                           :+:      :+:    :+:   *#
-#*                                                    +:+ +:+         +:+     *#
-#*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        *#
-#*                                                +#+#+#+#+#+   +#+           *#
-#*   Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#             *#
-#*   Updated: 2017/01/16 12:28:10 by kcosta           ###   ########.fr       *#
-#*                                                                            *#
-#* ************************************************************************** *#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
+#    Updated: 2019/03/08 18:22:30 by kcosta           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 BOLD = $(shell echo "\033[1m")
 BOLD_END = $(shell echo "\033[21m")
@@ -31,13 +31,16 @@ FILES = lem_in.c \
 		singletons.c \
 		parser.c \
 		utils.c \
-		solver.c
+		solver.c \
+		ft_strisdigit.c
 SRCS = $(addprefix $(SRCS_PATH), $(FILES))
 OBJS = $(SRCS:.c=.o)
 
 all: lib $(NAME)
 
 lib :
+	git submodule init
+	git submodule update --remote
 	@make -C $(LIBFT)
 
 %.o: %.c
